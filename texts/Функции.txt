@@ -1,0 +1,2 @@
+Function Declaration - блочная модель видимости
+
