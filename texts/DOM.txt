@@ -1,0 +1,88 @@
+el.getAttribute(name)
+  .setAttribute(name, value)
+  .hasAttribute(name)
+  .removeAttribute(name)
+elem.attributes - все атрибуты
+Все аттрибуты - строки
+Все свойства - типизированы
+input.getAttribute('checked') => пустая строка
+input.checked => boolean
+
+<input data-order-state='new' /> => 
+input.dataset.orderState
+
+node.append(el) - в конец node
+    .prepend(el) - в начало node
+    .before(el) - до node
+    .after(el) - после node
+    replaceWith(el) - заменить node
+node.insertAdjacentHTML/Text/Element(
+  'beforebegin/afterbagin/beforeend/afterend',
+  el
+)
+node.remove() - удалить node
+node.clone() - клонировать node
+
+const computedStyle = getComputedStyle(el)
+теперь можем читать стили установленные в css
+
+<button oncontextmenu="alert()"></button>
+
+Запрет на копирование
+<div oncopt="return false"></div>
+
+Отключение стандартного Drag'n'Drop
+element.ondragstart = function(){return false}
+
+при переключении раскладки меняется
+event.key => получить символ ('z')
+при переключении раскладки не меняется
+event.code => физический код клавиши (KeyZ)
+
+Форма с name="my"
+const form = document.forms.my
+Получение элемента/ов из коллекции формы
+const element = form.elements.one - first eay
+const element = form.one - second way
+Получение формы через элемент
+const form = element.form
+
+form.submit :
+  - нажать кнопку submit
+  - нажать Enter на каком-нибудь поле
+
+select.options - коллекция подэлементов option
+      .value - выбранный option
+      .selectedIndex - номер выьранного option
+const newOption = new Option(text, value, defaultSeklected, selected)
+
+focus / blur - фокусировка / потеря фокуса 
+input.onfocus/onblur
+
+Любой элемент поддерживает фокусировку, если имеет tabindex
+Порядок - 1-2-3-0 (минус 1 фокусировка только мышкой)
+focus не всплывает
+
+change - по окончании изменения элемента (потеря фокуса)
+input - при изменении значения
+cut / copy / paste
+
+document.addEventListener("DOMContentLoaded")
+DOMContentLoaded - браузер загрузил HTml и построил DOM, но внешние ресурсы могут быть еще не загружены
+window.onload = function
+load - браузер загрузил HTML и внешний ресурсы
+window.onbeforeunload = function(){
+  return "Есть несохраненные данные, уходим?"
+}
+beforeunload - пользователь покидает страницу. Можно проверить, сохранил ли он изменения и действительно ли он хочент уйти
+window.onunload = function
+unload - пользователь почти ушел, но все еще можно запустить некоторые операции, например отправить статичтику
+
+defer - ообщает браузеру, что он должен продолжать обрабатывать страницу и загружать скрипт в фоновом режиме, а затем запустить этот скрипт, когда DOM дерево будет полностью построено.
+async - скрипт абсолютно независим
+Динамически загружаемые скрипты по умолчанию ведут себя как «async».
+
+script.onload = function
+script.onerror = function
+img.onload ... 
+

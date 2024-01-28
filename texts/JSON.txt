@@ -1,0 +1,10 @@
+JSON пропускает некоторые свойства языка:
+  - методы объекта
+  - Символьные ключи и значения 
+  - Свойства содержащие underfind
+
+JSON.stringify(): 
+  - number => number
+  - 'string' => "string"
+  - boolean => boolean
+  - [1, 2, 3] => [1,2,3]

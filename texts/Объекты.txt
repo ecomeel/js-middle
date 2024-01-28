@@ -47,3 +47,4 @@ Object.keys(obj) / .values(obj) => [key, key] / [value, value]
 Object.entries(obj) => [ [ 'a', 10 ], [ 'b', 'string' ] ]
 Object.fromEntries(obj) => {}
 Object.* => возвращают реальные массивы
+
