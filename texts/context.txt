@@ -1,0 +1,19 @@
+const car = {
+  model: 'Toyota',
+  year: 2007,
+  showModel: function(color, engine) {
+    console.log(this.model, color, engine)
+  }
+}
+const anotherCar ={
+  model: 'BMW',
+  year: 1998,
+}
+car.showModel('red', 'diesel')
+
+car.showModel.call(anotherCar, 'blue', 'diesel')
+То же самое, что и:
+car.showModel.apply(anotherCar, ['blue', 'diesel'])
+То же самое что и:
+const showModelAnotherCar = car.showModel.bind(anotherCar)
+showModelAnotherCar('blue', 'diesel')

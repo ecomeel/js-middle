@@ -1,1 +1,44 @@
 Cookies
+document.cookie - setter / getter
+document.cookie = "uesr=John"
+encodeURIComponent() - форматирование
+path=/mypath
+domain=site.com
+
+Если нет параметров ниже, то cookie удалятся при закрытии браузера
+expires=data - до какого момента будут жить куки
+// +1 день от текущей даты
+let date = new Date(Date.now() + 86400e3);
+date = date.toUTCString();
+document.cookie = "user=John; expires=" + date;
+Альтернатива
+max-age=3600 - срок действия в секундах
+
+secure - cookie будут доступны только на https (не на http)
+
+samesite=string - можно без string. Защита от XSRF атаки. Не отправляются cookie, если пользователь пришел не с этого сайта
+
+
+LocalStorage & sessionStorage
+Данные не отправляются на сервер
+Можем хранить больше данных
+Сервер не может манипулировать хранилищем
+sessionStorage - сохраняются при обновлении страницы
+localStorage - сохраняются при закрытии браузера
+
+setItem(key, value)
+getItem(key)
+removeItem(key)
+clear()
+key(index) - get key by index
+length
+localStorage.age = 24
+
+LocalStorage
+  - Объект один на все вкладки и окна в рамках источника (домен / протокол / порт)
+  - Данные не имеют давности
+
+sessionStorage
+  - Существует только в рамках текущей вкладки
+  - Данные продолжают существовать при перезагрузке вкладки. После закрытия вкладки / браузера - данные удаляются
+

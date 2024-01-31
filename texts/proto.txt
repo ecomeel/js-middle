@@ -1,9 +1,34 @@
 - Ссылки не могут идти по кругу
 - __proto__ может быть объектом или null
-- может быть только один
-
+- может быть только один прототип
+- __protop__ - getter / setter
 Прототипы не влияют на this. При вызове метода this — всегда объект перед точкой.
 
 Цикл for..in проходит не только по собственным, но и по унаследованным свойствам объекта.
+Object.keys(rabbit) - проходит только по собственным ключам
 
-obj.hasOwnProperty(key)
+obj.hasOwnProperty(key) - содержит ли obj собственное свойство key
+Object.getOwnPropertyNames(obj) - массив собственных свойств объекта
+
+Object.create(proto, descriptors) - создаем пустой объект со свойством [[Prototype]]
+descriptors - {} - добавить дополнительные свойства новому обекту
+Object.create(animal, {
+  jumps: {
+    value: true
+  }
+})
+Object.getPrototypeOf(obj)
+Object.setPrototypeOf(obj, proto)
+
+Мы можем использовать свойство constructor существующего объекта для создания нового.
+const rabbit2 = new rabbit1.constructor()
+
+чтобы сохранить верное свойство "constructor", мы должны добавлять/удалять/изменять свойства у прототипа по умолчанию вместо того, чтобы перезаписывать его целиком
+Или мы можем заново создать свойство constructor
+
+const obj = {}
+obj.__proto__ === Object.prototype  // true
+
+const arr = [1, 2, 3]
+arr.__proto__ === Array.prototype
+arr.__proto__.__proto__ === Object.prototype

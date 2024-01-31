@@ -1,34 +1,48 @@
-// let x = null;
-// x ??= false;
-// x ??= 20;
-// x ??= underfind;
-// console.log(x)
+// var a = 15;
+// function bar() {}
+// function foo() {}
 
-// var x = 10;
-// function bar(fun) {
-//   var x = 30;
-//   fun()
+// function createPerson(_name) {
+//   this.name = _name;
 // }
-// function foo() {
-//   console.log(x)
-// }
-// foo.x = 20;
-// bar.x = 40;
-// bar(foo)
+// const user = new createPerson("Sasha");
 
+// const b = 'sdf';
+// b.a = 15;;
+// console.log(b.a)
 
-// const person1 = {
-//   name: 'Sasha',
-//   prof: 'web-dev',
-//   hi() {console.log('Hello, my name is', this.name)}
-// }
-// const person2 = {
-//   name: 'Petr'
-// }
-// person1.hi();
-// person1.hi.call(person2)
-// person1.hi.apply(person2)
-// person2.hi = person1.hi.bind(this)
-// person2.hi()
-// person1.hi()
+// var a = {}
+// (function b(a) {
+//   a.a = 10;
+//   a = null
+// })(a)
+// console.log(a)
 
+// 10 * 10
+// for(var i=0; i<10; i++) {
+//   setTimeout(() => {console.log(i)})
+// }
+
+// undefind undefind
+// var obj = {
+//   prop: 1,
+//   a: () => {
+//     console.log(this.prop)
+//   }
+// }
+// obj.a()
+// var fn = obj.a.bind(obj)
+// fn()
+
+// const p = new Promise((resolve, reject) => {
+//   return resolve(5);
+// });
+
+// console.log([1, 2] + 1 + 2)
+
+// f.call(f);
+// function f() {
+//   console.log( this );
+// }
+
+// console.log(1.15 + 2.30)
