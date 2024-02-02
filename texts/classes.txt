@@ -1,0 +1,41 @@
+Отличия от функций контрукторов:
+  - функция созданная с помощью class помечена свойством [[IsClassConstructor]]:true.
+    * Конструктор класса на может быть вызван без new.
+    * Строковое представление класса начинается с 'class Name {...00}'
+  - Методы класса являются неперечисляемыми. 
+    Enumerable: false для всех методов в "prototype"
+  - Классы всегда используют "use strict"
+
+Class expression
+  - const User = class {}
+  - const User = class MyClass{}
+    если у Class Expression есть имя, то оно доступно только внутри класса
+
+Getters / Setters
+  class User{
+    get name(){}
+    set name(){}
+  }
+
+Наследование классов
+  class Child extends Parent
+
+Переопределение методов
+  - super.method()
+    Вызывает родительский метод method
+
+    class {
+      stop() {
+        super.stop();
+        ...
+      }
+    }
+  - У стрелочных функий нет super. Беерет из внешней функции
+
+Переопределение конструктора
+  - если класс расширяет другой класс и не имеет конструктора, то автоматически создаётся такой «пустой» конструктор
+
+  constructor(name, age) {
+    super(name);
+    this.age = age;
+  }
