@@ -1,0 +1,41 @@
+Флаги
+  - writable - можно ли изменить свойство
+  - enumerable - перечисляется ли свойство в цикле
+  - configurable - можно ли удалить свойство и можно ли изменять вышеперечисленные аттрибуты. Если установить false, то обратно вернуть уже не получится
+
+Object.getOwnPropertyDescriptor(obj, property) =>
+  {
+    value: propertyValue,
+    writable: true,
+    enumerable: true,
+    configurable: true
+  }
+
+Object.getOwnPropertyDescriptors(obj)
+Получить все дескрипторы свойств
+
+Object.defineProperty(obj, property, descriptor)
+Если свойство сущетсвует - обновит флаги, в ином случае создаст новое свойство. Если какой-то флаг не указан, ему присвоится значение false;
+
+Object.defineProperties(obj, descriptors)
+  Object.defineProperties(obj, {
+    prop1: descriptor1,
+    prop2: descirptor2
+  })
+Указать множество свойств сразу
+
+Способ клонирования объекта вместе флагами
+const clone = Object.defineProperties(
+  {},
+  Object.getOwnProperties(obj)
+)
+
+Ограничение доступа к объекту
+  - Object.preventExtensions(obj) - запрещает добавлять новые свойства в объект
+  - Object.isExtensible(obj) - возвращает false, если добавление свойств запрещено, иначе true
+  - Object.seal(obj) - запрещает добавлять / удалять свойства. Устанавливает configurable: true для всех свойств объекта
+  - Object.isSealed(obj) - true, если добавление / удаление свойств запрещено и configurable: false для всех свойств
+  - Object.freeze(obj) - Запрещает добавлять/удалять/изменять свойства. Устанавливает configurable: false, writable: false для всех свойств объекта.
+  - Object.isFrozen(obj) - true, если запрещено добавление/удаление/изменение свойств и установлено configurable: false, writable: false для всех свойств
+
+  

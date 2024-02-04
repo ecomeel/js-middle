@@ -1,16 +1,4 @@
-// ??
-// var Singleton = function () {
-//   const instance = Singleton.instance;
-//   if (instance) return instance;
-//   Singleton.instance = this
-// };
-// var obj1 = new Singleton();
-// var obj2 = new Singleton();
-// console.log(obj1 === obj2)
-// obj1.test = 1;
-// obj2.test; // => 1
-// console.log(obj1.test)
-// console.log(obj2.test)
+
 
 // ?? Adding chain
 // function add(n) {
@@ -53,32 +41,6 @@
 //   };
 // }
 
-// class Animal {
-//   constructor(name, age, legs, species, status) {
-//     this.name = name;
-//     this.age = age;
-//     this.legs = legs;
-//     this.species = species;
-//     this.status = status;
-//   }
-//   introduce() {
-//     return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
-//   }
-// }
-
-// class Dog extends Animal {
-//   constructor(name, age, status, master) {
-//     super(name, age);
-//     this.status = status;
-//     this.legs = 4;
-//     this.species = "dog";
-//     this.master = master;
-//   }
-//   greetMaster() {
-//     return `Hello ${this.master}`
-//   }
-// }
-
 // function isSantaClausable(obj) {
 //   return ["sayHoHoHo", "distributeGifts", "goDownTheChimney"].every(function (
 //     methodName
@@ -91,7 +53,7 @@
 
 // const constructor = function (name, weight) {
 //   // if (!name || !weight) throw Error("invalid parameters");
-//   Object.defineProperty(this, "name", { 
+//   Object.defineProperty(this, "name", {
 //     get: () => name
 //   });
 //   Object.defineProperty(this, "weight", {
@@ -106,13 +68,25 @@
 
 // return constructor;
 
+"use strict";
 
-class Animal {
-  constructor(name) {
-    this.name = name;
-    this.speed = 0;
-  }
-  run(speed) {
-    return `${this.name} run ${this.speed}`
-  }
+const obj = {
+  a: 15,
+  b: 'hello'
 }
+const descriptor = Object.getOwnPropertyDescriptor(obj, 'a')
+
+Object.defineProperty(obj, 'a', {
+  value: 30
+})
+
+Object.defineProperty(obj, 'b', {
+  enumerable: false
+})
+Object.defineProperties(obj, {
+  name: {value: 'Sasha', writable: false},
+  surname: {value: 'Pulin', writable: false}
+})
+console.log(Object.getOwnPropertyDescriptors(obj))
+console.log(obj)
+
